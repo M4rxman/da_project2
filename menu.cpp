@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "exercises.h"
+#include "Reader/Reader.h"
 
 #define BRUTE_FORCE 1
 #define DYNAMIC 2
@@ -39,11 +40,11 @@ void menu::mainMenu() {
     int mode;
     std::cin >> mode;
 
-    /* Reader reader;
+    Reader reader;
+
     // TODO fix this according to the new reading functions
-    reader.readNodes("../datasets/Locations.csv");
-    reader.readEdges("../test_data/small_data/Distances.csv");
-    */
+    reader.readData(this->filesNumber, reader.pallets, reader.truck);
+
     Exerciser exerciser;
 
     if (mode == BRUTE_FORCE) {
@@ -91,11 +92,7 @@ void menu::dataMenu() {
     int dataset;
     std::cin >> dataset;
 
-    this->palletsFile = "../datasets/Pallets_0" + std::to_string(dataset) + ".csv";
-    this->trucksFile = "../datasets/TruckAndPallets_0" + std::to_string(dataset) + ".csv";
-
-    std::cout << "palletsFile: " << this->palletsFile << std::endl;
-    std::cout << "trucksFile: " << this->trucksFile << std::endl;
+    this->filesNumber = std::to_string(dataset);
 
 }
 
