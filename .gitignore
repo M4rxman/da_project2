@@ -1,1 +1,8 @@
-CMakeLists.txt
+/cmake-build-*/
+
+.idea/
+
+*.o
+*.obj
+*.exe
+*.out
