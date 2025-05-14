@@ -1,0 +1,116 @@
+#include "menu.h"
+#include "exercises.h"
+
+#define BRUTE_FORCE 1
+#define DYNAMIC 2
+#define GREEDY 3
+#define ILP 4
+#define PERFORMANCE 5
+#define QUIT 0
+
+
+
+
+/**
+ * @brief Constructs the menu and displays a welcome message.
+ */
+menu::menu() {
+    std::cout << "Welcome to the menu\n";
+}
+
+/**
+ * @brief Displays the main menu and handles user input for different modes.
+ *
+ */
+
+void menu::mainMenu() {
+    std::cout << "============================================================\n";
+    std::cout << "          Delivery Truck Pallet Packing - Main Menu         \n";
+    std::cout << "============================================================\n";
+    std::cout << " 1. Exhaustive/Brute-Force Approach ( 2.1 )\n";
+    std::cout << " 2. Dynamic Programming Approach ( 2.2 )\n";
+    std::cout << " 3. Approximation Algorithms/Greedy Approach ( 2.3 )\n";
+    std::cout << " 4. Integer Linear Programming Algorithm ( 2.4 )\n";
+    std::cout << " 5. Performance Evaluation\n";
+    std::cout << " 0. Quit\n";
+    std::cout << "-------------------------------------\n";
+    std::cout << " Choose an option:\n";
+
+    int mode;
+    std::cin >> mode;
+
+    /* Reader reader;
+    // TODO fix this according to the new reading functions
+    reader.readNodes("../datasets/Locations.csv");
+    reader.readEdges("../test_data/small_data/Distances.csv");
+    */
+    Exerciser exerciser;
+
+    if (mode == BRUTE_FORCE) {
+        std::cout << "Exhaustive/Brute Force Approach\n ";
+        exerciser.ex_2_1();
+        backToMenu(*this);
+    }
+    else if (mode == DYNAMIC) {
+        std::cout << "Dynammic Programming Approach\n ";
+        exerciser.ex_2_2();
+        backToMenu(*this);
+    }
+    else if (mode == GREEDY) {
+        std::cout << "Approximation Algorithms/Greedy Approach\n ";
+        exerciser.ex_2_3();
+        backToMenu(*this);
+    }
+    else if (mode == ILP) {
+        std::cout << "Integer Linear Programming Algorithm \n ";
+        exerciser.ex_2_4();
+        backToMenu(*this);
+    }
+    else if (mode == PERFORMANCE) {
+        std::cout << "Performance Evaluation \n ";
+        exerciser.ex_2_5();
+        backToMenu(*this);
+    }
+    else if (mode == QUIT) {
+        std::cout << "Exiting program...\n";
+        exit(0);
+    }
+    else {
+        std::cout << "Invalid option. Please try again.\n";
+
+        mainMenu();
+    }
+}
+
+void menu::dataMenu() {
+    std::cout << "============================================================\n";
+    std::cout << "          Delivery Truck Pallet Packing - Data Menu         \n";
+    std::cout << "============================================================\n";
+    std::cout << "Select a number between 1 and 4 to choose a dataset:\n";
+
+    int dataset;
+    std::cin >> dataset;
+
+    this->palletsFile = "../datasets/Pallets_0" + std::to_string(dataset) + ".csv";
+    this->trucksFile = "../datasets/TruckAndPallets_0" + std::to_string(dataset) + ".csv";
+
+    std::cout << "palletsFile: " << this->palletsFile << std::endl;
+    std::cout << "trucksFile: " << this->trucksFile << std::endl;
+
+}
+
+
+void menu::backToMenu(menu& m) {
+    std::cout << "\n-------------------------------------\n";
+    std::cout << "Choose 9 to return to the menu or press any other key to exit\n";
+
+    char choice;
+    std::cin >> choice;
+
+    if (choice == '9') {
+        m.mainMenu();
+    } else {
+        std::cout << "Exiting program...\n";
+        exit(0);
+    }
+}
