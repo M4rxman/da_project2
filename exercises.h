@@ -10,6 +10,7 @@
 #include <vector>
 #include <unordered_set>
 #include "menu.h"
+#include "Reader/Reader.h"
 
 /**
  * @class Exerciser
@@ -20,15 +21,15 @@ public:
 
 
     // TODO add Reader &reader as argument for all the exerciser functions
-    void ex_2_1();
+    void ex_2_1(Reader &reader);
 
-    void ex_2_2();
+    void ex_2_2(Reader &reader);
 
-    void ex_2_3();
+    void ex_2_3(Reader &reader);
 
-    void ex_2_4();
+    void ex_2_4(Reader &reader);
 
-    void ex_2_5();
+    void ex_2_5(Reader &reader);
 };
 
 #endif //DAPROJ2_EXERCISES_H

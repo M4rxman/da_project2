@@ -3,5 +3,5 @@ project(DA_Project_2)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(DA_Project_2 main.cpp)
+add_executable(DA_Project_2 main.cpp menu.cpp exercises.cpp)
 

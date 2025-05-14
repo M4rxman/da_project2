@@ -10,8 +10,6 @@
 #define QUIT 0
 
 
-
-
 /**
  * @brief Constructs the menu and displays a welcome message.
  */

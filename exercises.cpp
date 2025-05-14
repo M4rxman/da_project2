@@ -6,25 +6,25 @@
  */
 
 
-void Exerciser::ex_2_1() {
+void Exerciser::ex_2_1(Reader &reader) {
     // TODO
 };
 
 
-void Exerciser::ex_2_2() {
+void Exerciser::ex_2_2(Reader &reader) {
     // TODO
 };
 
 
-void Exerciser::ex_2_3() {
+void Exerciser::ex_2_3(Reader &reader) {
     // TODO
 };
 
 
-void Exerciser::ex_2_4() {
+void Exerciser::ex_2_4(Reader &reader) {
     // TODO
 };
 
-void Exerciser::ex_2_5() {
+void Exerciser::ex_2_5(Reader &reader) {
     // TODO
 };
