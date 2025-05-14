@@ -1,11 +1,7 @@
-cmake_minimum_required(VERSION 3.15)
-project(da_project2)
+cmake_minimum_required(VERSION 3.30)
+project(DA_Project_2)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 20)
 
-add_executable(da_project2
-        main.cpp
-        menu.cpp
-        exercises.cpp
-)
+add_executable(DA_Project_2 main.cpp)
+
