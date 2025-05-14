@@ -12,8 +12,7 @@ class menu {
 
 private:
 
-    std::string palletsFile;
-    std::string trucksFile;
+    std::string filesNumber;
 
 public:
     /**

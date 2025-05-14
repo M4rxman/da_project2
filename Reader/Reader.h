@@ -12,6 +12,9 @@ class Reader {
 
 public:
     void readData(string filename,  Pallet* pallets[], Truck truck);
+
+    Pallet* pallets[];
+    Truck truck;
 };
 
 

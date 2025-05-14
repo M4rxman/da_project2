@@ -9,13 +9,13 @@
 
 #include "Reader.h"
 
-void Reader::readData(std::string filename, Pallet* pallets[], Truck truck) {
+void Reader::readData(std::string filesNumber, Pallet* pallets[], Truck truck) {
 
     std::string line;
 
-    std::ifstream file("../datasets/TruckAndPallets_" + filename);
+    std::ifstream file("../datasets/TruckAndPallets_" + filesNumber);
     if (!file.is_open()) {
-        std::cerr << "Error: Failed to open file " << filename << std::endl;
+        std::cerr << "Error: Failed to open file " << filesNumber << std::endl;
         return;
     }
 
