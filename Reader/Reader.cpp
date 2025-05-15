@@ -6,16 +6,18 @@
 #include <sstream>
 #include <stdlib.h>
 #include <string>
+#include <vector>
+
 
 #include "Reader.h"
 
-void Reader::readData(std::string filesNumber, Pallet* pallets[], Truck truck) {
+void Reader::readData(std::string filesNumber) {
 
     std::string line;
 
-    std::ifstream file("../datasets/TruckAndPallets_" + filesNumber);
+    std::ifstream file("../datasets/TruckAndPallets_0" + filesNumber + ".csv");
     if (!file.is_open()) {
-        std::cerr << "Error: Failed to open file " << filesNumber << std::endl;
+        std::cerr << "Error: Failed to open truck file " << filesNumber << std::endl;
         return;
     }
 
@@ -34,27 +36,29 @@ void Reader::readData(std::string filesNumber, Pallet* pallets[], Truck truck) {
         truck.capacity = std::strtoul(tmp_capacity.c_str(), nullptr, 0);
         truck.pallets = std::strtoul(tmp_pallets.c_str(), nullptr, 0);
     }
+    file.close();
 
-    //TODO: close stream, open one for pallets;
+    std::ifstream Pfile("../datasets/Pallets_0" + filesNumber + ".csv");
+    if (!Pfile.is_open()) {
+        std::cerr << "Error: Failed to open pallets file " << filesNumber << std::endl;
+        return;
+    }
 
     //reading pallets
-    std::getline(file, line, '\n');
+    std::getline(Pfile, line, '\n');
 
     unsigned int  i = 0;
     std::string tmp_pallet_num, tmp_pallet_weight, tmp_pallet_profit;
 
-    while ((std::getline(file, line, '\n')) && i <= truck.pallets) {
+    while ((std::getline(Pfile, line, '\n')) && i <= truck.pallets) {
         std::stringstream ss(line);
-
-
 
         std::getline(ss, tmp_pallet_num, ',');
         std::getline(ss, tmp_pallet_weight, ',');
         std::getline(ss, tmp_pallet_profit, ',');
 
-        pallets[i]->number = std::strtoul(tmp_pallet_num.c_str(), nullptr, 0);
-        pallets[i]->weight = std::strtoul(tmp_pallet_weight.c_str(), nullptr, 0);
-        pallets[i]->profit = std::strtoul(tmp_pallet_profit.c_str(), nullptr, 0);
-        i++;
+        Pallet pal(std::stoi(tmp_pallet_num),std::stoi(tmp_pallet_weight),std::stoi(tmp_pallet_profit));
+        this->pallets.push_back(pal);
     }
+    Pfile.close();
 }

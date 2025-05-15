@@ -12,6 +12,8 @@ public:
     unsigned int  weight;
     unsigned int  profit;
     void readPallets(string filename);
+    Pallet();
+    Pallet(unsigned int  number,unsigned int  weight,unsigned int  profit);
 
 };
 

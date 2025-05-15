@@ -7,7 +7,9 @@
 
 
 void Exerciser::ex_2_1(Reader &reader) {
-    // TODO
+    for (auto i : reader.pallets) {
+        std::cout << i.number << std::endl;
+    }
 };
 
 

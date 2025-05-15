@@ -3,7 +3,7 @@
 
 #include "../DataTypes/pallet.h"
 #include "../DataTypes/truck.h"
-#include "list"
+#include <vector>
 #include <string>
 
 using namespace std;
@@ -11,9 +11,9 @@ using namespace std;
 class Reader {
 
 public:
-    void readData(string filename,  Pallet* pallets[], Truck truck);
+    void readData(std::string filesNumber);
 
-    Pallet* pallets[];
+    std::vector<Pallet> pallets;
     Truck truck;
 };
 

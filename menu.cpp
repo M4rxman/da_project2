@@ -41,33 +41,33 @@ void menu::mainMenu() {
     Reader reader;
 
     // TODO fix this according to the new reading functions
-    reader.readData(this->filesNumber, reader.pallets, reader.truck);
+    reader.readData(this->filesNumber);
 
     Exerciser exerciser;
 
     if (mode == BRUTE_FORCE) {
         std::cout << "Exhaustive/Brute Force Approach\n ";
-        exerciser.ex_2_1();
+        exerciser.ex_2_1(reader);
         backToMenu(*this);
     }
     else if (mode == DYNAMIC) {
         std::cout << "Dynammic Programming Approach\n ";
-        exerciser.ex_2_2();
+        exerciser.ex_2_2(reader);
         backToMenu(*this);
     }
     else if (mode == GREEDY) {
         std::cout << "Approximation Algorithms/Greedy Approach\n ";
-        exerciser.ex_2_3();
+        exerciser.ex_2_3(reader);
         backToMenu(*this);
     }
     else if (mode == ILP) {
         std::cout << "Integer Linear Programming Algorithm \n ";
-        exerciser.ex_2_4();
+        exerciser.ex_2_4(reader);
         backToMenu(*this);
     }
     else if (mode == PERFORMANCE) {
         std::cout << "Performance Evaluation \n ";
-        exerciser.ex_2_5();
+        exerciser.ex_2_5(reader);
         backToMenu(*this);
     }
     else if (mode == QUIT) {
