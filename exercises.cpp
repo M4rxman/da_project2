@@ -124,6 +124,6 @@ void Exerciser::ex_2_4(Reader &reader) {
 
 
 
-void Exerciser::ex_2_5(Reader &reader) {
+void Exerciser::ex_3_1(Reader &reader) {
     // TODO
 };

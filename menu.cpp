@@ -97,7 +97,7 @@ void menu::mainMenu() {
     else if (mode == PERFORMANCE) {
         std::cout << "Performance Evaluation \n ";
 
-        exerciser.ex_2_5(reader);
+        exerciser.ex_3_1(reader);
 
         backToMenu(*this);
     }
