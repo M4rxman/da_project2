@@ -1,6 +1,7 @@
 
 #include "exercises.h"
 #include <algorithm>
+#include <iomanip>
 
 
 /**
@@ -16,6 +17,7 @@ void Exerciser::ex_2_1(Reader &reader) {
 
     int bestTotalProfit = 0;
     int bestSubsetMask  = 0;
+    int finalWeight = 0;
 
     const int totalSubsets = (1ULL << palletCount);
     for (int subsetMask = 0; subsetMask < totalSubsets; ++subsetMask) {
@@ -39,11 +41,14 @@ void Exerciser::ex_2_1(Reader &reader) {
         if (currentWeight <= capacity && currentProfit > bestTotalProfit) {
             bestTotalProfit = currentProfit;
             bestSubsetMask  = subsetMask;
+            finalWeight = currentWeight;
         }
     }
+
     cout << "=== Ex. 2.1: Brute-Force Knapsack ===\n";
     cout << "Truck Capacity: " << capacity << "\n";
     cout << "Available pallets: " << palletCount << "\n\n";
+    std::cout << "Final weight: " << finalWeight << "\n";
 
     cout << "Best overall profit: " << bestTotalProfit << "\n";
     cout << "Selected pallets:\n";
@@ -96,14 +101,16 @@ void Exerciser::ex_2_3(Reader &reader) {
     std::cout << "Available pallets: " << truck.pallets << "\n\n";
 
     std::cout << "Best overall profit: " << totalProfit << "\n";
+    std::cout << "Final weight: " << currentWeight << "\n";
     std::cout << "Selected pallets:\n";
 
-    std::sort(selectedIndices.begin(), selectedIndices.end());
     for (int idx : selectedIndices) {
         const Pallet& p = pallets[idx];
         std::cout << "  - Pallet #" << p.number
                   << " | Weight: " << p.weight
                   << " | Profit: " << p.profit
+                  << " | Profit/Weight: " << std::fixed << std::setprecision(2)
+                  << static_cast<double>(p.profit)/p.weight
                   << "\n";
     }
 
