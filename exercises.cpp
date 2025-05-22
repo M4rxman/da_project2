@@ -1,5 +1,8 @@
 
 #include "exercises.h"
+#include <algorithm>
+
+
 /**
  * @file exercises.cpp
  * @brief Implementation of exercise functions for delivery truck optimizations.
@@ -40,20 +43,19 @@ void Exerciser::ex_2_1(Reader &reader) {
     }
     cout << "=== Ex. 2.1: Brute-Force Knapsack ===\n";
     cout << "Truck Capacity: " << capacity << "\n";
-    cout << "Número de pallets disponíveis: " << palletCount << "\n\n";
+    cout << "Available pallets: " << palletCount << "\n\n";
 
-    cout << "Melhor lucro total: " << bestTotalProfit << "\n";
-    cout << "Conjunto de pallets selecionados:\n";
+    cout << "Best overall profit: " << bestTotalProfit << "\n";
+    cout << "Selected pallets:\n";
     for (size_t i = 0; i < palletCount; ++i) {
         if (bestSubsetMask & (1ULL << i)) {
             const auto &p = palletList[i];
             cout << "  - Pallet #" << p.number
-                 << " | Peso: "  << p.weight
+                 << " | Weight: "  << p.weight
                  << " | Profit: "<< p.profit
                  << "\n";
         }
     }
-    cout << "====================================\n\n";
 
 };
 
@@ -64,13 +66,56 @@ void Exerciser::ex_2_2(Reader &reader) {
 
 
 void Exerciser::ex_2_3(Reader &reader) {
-    // TODO
+    Truck& truck = reader.truck;
+    std::vector<Pallet>& pallets = reader.pallets;
+
+    std::vector<std::pair<double, int>> ratioIndexPairs;
+    for (int i = 0; i < pallets.size(); ++i) {
+        double ratio = static_cast<double>(pallets[i].weight) / pallets[i].profit;
+        ratioIndexPairs.emplace_back(ratio, i);
+    }
+
+    std::sort(ratioIndexPairs.begin(), ratioIndexPairs.end(),
+              [](const auto& a, const auto& b) { return a.first < b.first; });
+
+    unsigned currentWeight = 0;
+    unsigned totalProfit = 0;
+    std::vector<int> selectedIndices;
+
+    for (const auto& [ratio, idx] : ratioIndexPairs) {
+        const Pallet& p = pallets[idx];
+        if (currentWeight + p.weight <= truck.capacity) {
+            selectedIndices.push_back(idx);
+            currentWeight += p.weight;
+            totalProfit += p.profit;
+        }
+    }
+
+    std::cout << "=== Ex. 2.4: Greedy Algorithm ===\n";
+    std::cout << "Truck Capacity: " << truck.capacity << "\n";
+    std::cout << "Available pallets: " << truck.pallets << "\n\n";
+
+    std::cout << "Best overall profit: " << totalProfit << "\n";
+    std::cout << "Selected pallets:\n";
+
+    std::sort(selectedIndices.begin(), selectedIndices.end());
+    for (int idx : selectedIndices) {
+        const Pallet& p = pallets[idx];
+        std::cout << "  - Pallet #" << p.number
+                  << " | Weight: " << p.weight
+                  << " | Profit: " << p.profit
+                  << "\n";
+    }
+
 };
 
 
 void Exerciser::ex_2_4(Reader &reader) {
-    // TODO
-};
+
+}
+
+
+
 
 void Exerciser::ex_2_5(Reader &reader) {
     // TODO
