@@ -1,4 +1,14 @@
-
+/**
+* @file exercises.cpp
+ * @brief Implements the main knapsack and routing exercises in Exerciser.
+ *
+ * Contains four algorithms for the 0/1 Knapsack problem and one placeholder:
+ *  - ex_2_1: brute-force enumeration
+ *  - ex_2_2: dynamic programming
+ *  - ex_2_3: greedy ratio heuristic
+ *  - ex_2_4: genetic algorithm
+ *  - ex_3_1: (TODO, not documented)
+ */
 #include "exercises.h"
 #include <algorithm>
 #include <iomanip>
@@ -11,10 +21,17 @@ const int GA_MAX_GENERATIONS = 100;
 
 
 /**
- * @file exercises.cpp
- * @brief Implementation of exercise functions for delivery truck optimizations.
+ * @brief Brute-force solution to the 0/1 Knapsack problem.
+ *
+ * Tries every subset of pallets by bitmask enumeration, tracking
+ * the best(>profit) subset that fits within truck.capacity.
+ *
+ * @complexity
+ * - Time:    O(2^n * n), where n = number of pallets
+ * - Space:   O(1) extra (aside from input storage)
+ *
+ * @param reader  Provides reader.pallets and reader.truck.capacity.
  */
-
 
 void Exerciser::ex_2_1(Reader &reader) {
     const vector<Pallet> &palletList = reader.pallets;
@@ -78,6 +95,18 @@ void Exerciser::ex_2_1(Reader &reader) {
 };
 
 
+/**
+ * @brief Dynamic-programming solution to the 0/1 Knapsack problem.
+ *
+ * Builds a 2D table dp[i][w] = max profit using first i items and capacity w,
+ * then backtracks to retrieve the chosen set.
+ *
+ * @complexity
+ * - Time:    O(n * W), where W = truck.capacity
+ * - Space:   O(n * W) for the DP table
+ *
+ * @param reader  Provides reader.pallets and reader.truck.capacity.
+ */
 void Exerciser::ex_2_2(Reader &reader) {
     const auto &palletList = reader.pallets;
     const size_t n = palletList.size();
@@ -148,6 +177,15 @@ void Exerciser::ex_2_2(Reader &reader) {
 };
 
 
+/**
+ * @brief Greedy heuristic: sort by weight/profit ratio and take in order.
+ *
+ * @complexity
+ * - Time:    O(n log n) for the sort
+ * - Space:   O(n) auxiliary for ratio–index pairs
+ *
+ * @param reader  Provides reader.pallets and reader.truck.capacity.
+ */
 void Exerciser::ex_2_3(Reader &reader) {
     Truck& truck = reader.truck;
     std::vector<Pallet>& pallets = reader.pallets;
@@ -241,12 +279,38 @@ void repair_solution(vector<bool>& chromosome, const vector<Pallet>& pallets, in
     }
 }
 
+/**
+ * @struct Individual
+ * @brief Represents one candidate solution in the genetic algorithm.
+ *
+ * Each Individual contains:
+ *   - chromosome: a bit-vector where each bit indicates whether the
+ *     corresponding pallet is included in this solution.
+ *   - fitness: the computed profit for this chromosome (or –1 if it
+ *     exceeds the truck’s capacity).
+ */
 struct Individual {
     vector<bool> chromosome;
     int fitness;
 };
 
 
+/**
+ * @brief Genetic-algorithm approach to Knapsack.
+ *
+ * Initializes a population of random bitstrings, repairs overweight
+ * individuals, then evolves via tournament selection, single-point
+ * crossover, and bit-flip mutation.
+ *
+ * @complexity
+ * - Time:    O(G * P * n), where
+ *            G = GA_MAX_GENERATIONS,
+ *            P = GA_POP_SIZE,
+ *            n = number of pallets
+ * - Space:   O(P * n) for the population
+ *
+ * @param reader  Provides reader.pallets and reader.truck.capacity.
+ */
 void Exerciser::ex_2_4(Reader &reader) {
 
     Truck& truck = reader.truck;

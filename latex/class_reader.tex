@@ -1,0 +1,89 @@
+\doxysection{Reader Class Reference}
+\hypertarget{class_reader}{}\label{class_reader}\index{Reader@{Reader}}
+
+
+Loads and stores truck parameters and pallet listings from CSV datasets.  
+
+
+
+
+{\ttfamily \#include $<$Reader.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_reader_a3c2d0f6403c83bc24d458f977c7203a2}{read\+Data}} (const std\+::string \&files\+Number)
+\begin{DoxyCompactList}\small\item\em Reads the truck and pallet files corresponding to a dataset index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_pallet}{Pallet}} $>$ \mbox{\hyperlink{class_reader_ae9e4731cfff5b239e7959c32822ce9cd}{pallets}}
+\item 
+\mbox{\hyperlink{class_truck}{Truck}} \mbox{\hyperlink{class_reader_af482b079c0fa8a9b72eca354cbb5f8c0}{truck}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Loads and stores truck parameters and pallet listings from CSV datasets. 
+
+\label{doc-func-members}
+\Hypertarget{class_reader_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_reader_a3c2d0f6403c83bc24d458f977c7203a2}\index{Reader@{Reader}!readData@{readData}}
+\index{readData@{readData}!Reader@{Reader}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily \label{class_reader_a3c2d0f6403c83bc24d458f977c7203a2} 
+void Reader\+::read\+Data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{files\+Number}{}\end{DoxyParamCaption})}
+
+
+
+Reads the truck and pallet files corresponding to a dataset index. 
+
+Reads truck and pallet information from two CSV files.
+
+Constructs file paths\+: "{}../datasets/\+Truck\+And\+Pallets\+\_\+0$<$files\+Number$>$.\+csv"{} "{}../datasets/\+Pallets\+\_\+0$<$files\+Number$>$.\+csv"{} Opens each file in turn, parses the header and data lines, and fills\+:
+\begin{DoxyItemize}
+\item truck.\+capacity
+\item truck.\+pallets (number of pallets expected)
+\item pallets (vector of \doxylink{class_pallet}{Pallet} objects)
+\end{DoxyItemize}
+
+If a file fails to open, an error is printed and the function returns early.
+
+
+\begin{DoxyParams}{Parameters}
+{\em files\+Number} & Two-\/digit suffix (e.\+g. "{}1"{}, "{}2"{}, "{}03"{}) used to build the filenames.\\
+\hline
+\end{DoxyParams}
+Given a string suffix {\ttfamily files\+Number}, this function constructs the paths\+: "{}../datasets/\+Truck\+And\+Pallets\+\_\+0$<$files\+Number$>$.\+csv"{} "{}../datasets/\+Pallets\+\_\+0$<$files\+Number$>$.\+csv"{} It first opens the truck file and reads the header plus one data row to set {\ttfamily truck.\+capacity} and {\ttfamily truck.\+pallets}. Then it opens the pallets file, skips its header, and reads up to {\ttfamily truck.\+pallets} entries, converting each line into a \doxylink{class_pallet}{Pallet} object and appending it to {\ttfamily pallets}.
+
+If either file fails to open, an error message is written to std\+::cerr and the function returns early without throwing exceptions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em files\+Number} & Numeric suffix (e.\+g. "{}1"{}, "{}2"{}) used to build the dataset filenames. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_reader_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_reader_ae9e4731cfff5b239e7959c32822ce9cd}\index{Reader@{Reader}!pallets@{pallets}}
+\index{pallets@{pallets}!Reader@{Reader}}
+\doxysubsubsection{\texorpdfstring{pallets}{pallets}}
+{\footnotesize\ttfamily \label{class_reader_ae9e4731cfff5b239e7959c32822ce9cd} 
+std\+::vector$<$\mbox{\hyperlink{class_pallet}{Pallet}}$>$ Reader\+::pallets}
+
+List of loaded \doxylink{class_pallet}{Pallet} objects \Hypertarget{class_reader_af482b079c0fa8a9b72eca354cbb5f8c0}\index{Reader@{Reader}!truck@{truck}}
+\index{truck@{truck}!Reader@{Reader}}
+\doxysubsubsection{\texorpdfstring{truck}{truck}}
+{\footnotesize\ttfamily \label{class_reader_af482b079c0fa8a9b72eca354cbb5f8c0} 
+\mbox{\hyperlink{class_truck}{Truck}} Reader\+::truck}
+
+Loaded \doxylink{class_truck}{Truck} object (capacity and pallet count) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Reader/\mbox{\hyperlink{_reader_8h}{Reader.\+h}}\item 
+Reader/\mbox{\hyperlink{_reader_8cpp}{Reader.\+cpp}}\end{DoxyCompactItemize}

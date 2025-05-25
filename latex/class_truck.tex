@@ -1,0 +1,70 @@
+\doxysection{Truck Class Reference}
+\hypertarget{class_truck}{}\label{class_truck}\index{Truck@{Truck}}
+
+
+Stores the capacity and pallet count of a delivery truck.  
+
+
+
+
+{\ttfamily \#include $<$truck.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_truck_a997b99656134a7603bd542c212ad35e7}{read\+Trucks}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Loads the truck’s capacity and pallet count from a CSV file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{class_truck_aa2c9e48475c2c68a210151c988026c4e}{capacity}}
+\item 
+unsigned int \mbox{\hyperlink{class_truck_ad73f7385d647dfd878fb87e692045fd6}{pallets}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stores the capacity and pallet count of a delivery truck. 
+
+\label{doc-func-members}
+\Hypertarget{class_truck_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_truck_a997b99656134a7603bd542c212ad35e7}\index{Truck@{Truck}!readTrucks@{readTrucks}}
+\index{readTrucks@{readTrucks}!Truck@{Truck}}
+\doxysubsubsection{\texorpdfstring{readTrucks()}{readTrucks()}}
+{\footnotesize\ttfamily \label{class_truck_a997b99656134a7603bd542c212ad35e7} 
+void Truck\+::read\+Trucks (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Loads the truck’s capacity and pallet count from a CSV file. 
+
+Expects the file to contain two comma-\/separated values\+: capacity,pallets on a single line (after an optional header). On failure to open the file, writes an error to std\+::cerr.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path to the CSV file to read. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_truck_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_truck_aa2c9e48475c2c68a210151c988026c4e}\index{Truck@{Truck}!capacity@{capacity}}
+\index{capacity@{capacity}!Truck@{Truck}}
+\doxysubsubsection{\texorpdfstring{capacity}{capacity}}
+{\footnotesize\ttfamily \label{class_truck_aa2c9e48475c2c68a210151c988026c4e} 
+unsigned int Truck\+::capacity}
+
+Maximum weight capacity of the truck. \Hypertarget{class_truck_ad73f7385d647dfd878fb87e692045fd6}\index{Truck@{Truck}!pallets@{pallets}}
+\index{pallets@{pallets}!Truck@{Truck}}
+\doxysubsubsection{\texorpdfstring{pallets}{pallets}}
+{\footnotesize\ttfamily \label{class_truck_ad73f7385d647dfd878fb87e692045fd6} 
+unsigned int Truck\+::pallets}
+
+Number of pallets expected for loading. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Data\+Types/\mbox{\hyperlink{truck_8h}{truck.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,51 @@
+\doxysection{exercises.\+cpp File Reference}
+\hypertarget{exercises_8cpp}{}\label{exercises_8cpp}\index{exercises.cpp@{exercises.cpp}}
+
+
+Implements the main knapsack and routing exercises in \doxylink{class_exerciser}{Exerciser}.  
+
+
+{\ttfamily \#include "{}exercises.\+h"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_individual}{Individual}}
+\begin{DoxyCompactList}\small\item\em Represents one candidate solution in the genetic algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{exercises_8cpp_aa4a484a53f70553b4995eaf39b389596}\label{exercises_8cpp_aa4a484a53f70553b4995eaf39b389596} 
+int {\bfseries calculate\+\_\+fitness} (const vector$<$ bool $>$ \&chromosome, const vector$<$ \mbox{\hyperlink{class_pallet}{Pallet}} $>$ \&pallets, int truck\+\_\+capacity)
+\item 
+\Hypertarget{exercises_8cpp_aa6e14b9420fd3245ba4eb3f9506c4c32}\label{exercises_8cpp_aa6e14b9420fd3245ba4eb3f9506c4c32} 
+void {\bfseries repair\+\_\+solution} (vector$<$ bool $>$ \&chromosome, const vector$<$ \mbox{\hyperlink{class_pallet}{Pallet}} $>$ \&pallets, int truck\+\_\+capacity)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{exercises_8cpp_ae4a6ddf7b10bbdb3f661ce7b460d731a}\label{exercises_8cpp_ae4a6ddf7b10bbdb3f661ce7b460d731a} 
+const int {\bfseries GA\+\_\+\+POP\+\_\+\+SIZE} = 100
+\item 
+\Hypertarget{exercises_8cpp_a1d845c7b932874e6b6f0fb9ff5672a06}\label{exercises_8cpp_a1d845c7b932874e6b6f0fb9ff5672a06} 
+const double {\bfseries GA\+\_\+\+MUTATION\+\_\+\+RATE} = 0.\+01
+\item 
+\Hypertarget{exercises_8cpp_aca39f00013de0cc503a7a468056edd33}\label{exercises_8cpp_aca39f00013de0cc503a7a468056edd33} 
+const int {\bfseries GA\+\_\+\+MAX\+\_\+\+GENERATIONS} = 100
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements the main knapsack and routing exercises in \doxylink{class_exerciser}{Exerciser}. 
+
+Contains four algorithms for the 0/1 Knapsack problem and one placeholder\+:
+\begin{DoxyItemize}
+\item ex\+\_\+2\+\_\+1\+: brute-\/force enumeration
+\item ex\+\_\+2\+\_\+2\+: dynamic programming
+\item ex\+\_\+2\+\_\+3\+: greedy ratio heuristic
+\item ex\+\_\+2\+\_\+4\+: genetic algorithm
+\item ex\+\_\+3\+\_\+1\+: (TODO, not documented) 
+\end{DoxyItemize}

@@ -1,0 +1,30 @@
+\doxysection{Individual Struct Reference}
+\hypertarget{struct_individual}{}\label{struct_individual}\index{Individual@{Individual}}
+
+
+Represents one candidate solution in the genetic algorithm.  
+
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_individual_a8b8e61bbe215c0c2c1d6014dab95360d}\label{struct_individual_a8b8e61bbe215c0c2c1d6014dab95360d} 
+vector$<$ bool $>$ {\bfseries chromosome}
+\item 
+\Hypertarget{struct_individual_a6fb9208796d4c530575d3c442fb6f76b}\label{struct_individual_a6fb9208796d4c530575d3c442fb6f76b} 
+int {\bfseries fitness}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents one candidate solution in the genetic algorithm. 
+
+Each \doxylink{struct_individual}{Individual} contains\+:
+\begin{DoxyItemize}
+\item chromosome\+: a bit-\/vector where each bit indicates whether the corresponding pallet is included in this solution.
+\item fitness\+: the computed profit for this chromosome (or –1 if it exceeds the truck’s capacity). 
+\end{DoxyItemize}
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{exercises_8cpp}{exercises.\+cpp}}\end{DoxyCompactItemize}

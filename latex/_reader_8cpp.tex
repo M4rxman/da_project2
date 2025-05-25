@@ -1,0 +1,23 @@
+\doxysection{Reader/\+Reader.cpp File Reference}
+\hypertarget{_reader_8cpp}{}\label{_reader_8cpp}\index{Reader/Reader.cpp@{Reader/Reader.cpp}}
+
+
+Implements the \doxylink{class_reader}{Reader} class for loading truck and pallet data from CSV files.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}Reader.\+h"{}}\newline
+
+
+\doxysubsection{Detailed Description}
+Implements the \doxylink{class_reader}{Reader} class for loading truck and pallet data from CSV files. 
+
+This file defines the \doxylink{class_reader_a3c2d0f6403c83bc24d458f977c7203a2}{Reader\+::read\+Data} method, which opens two CSV files\+:
+\begin{DoxyItemize}
+\item "{}../datasets/\+Truck\+And\+Pallets\+\_\+0$<$files\+Number$>$.\+csv"{} to read truck capacity and number of pallets
+\item "{}../datasets/\+Pallets\+\_\+0$<$files\+Number$>$.\+csv"{} to read individual pallet entries The method populates the \doxylink{class_reader_af482b079c0fa8a9b72eca354cbb5f8c0}{Reader\+::truck} member and the \doxylink{class_reader_ae9e4731cfff5b239e7959c32822ce9cd}{Reader\+::pallets} vector. 
+\end{DoxyItemize}

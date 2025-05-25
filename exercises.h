@@ -12,23 +12,48 @@
 #include "menu.h"
 #include "Reader/Reader.h"
 
+
 /**
  * @class Exerciser
- * @brief A class that contains various exercises related to route calculation.
+ * @brief Hosts implementations of several optimization exercises.
+ *
+ * Provides methods:
+ *  - ex_2_1: brute-force knapsack
+ *  - ex_2_2: dynamic-programming knapsack
+ *  - ex_2_3: greedy knapsack
+ *  - ex_2_4: genetic algorithm knapsack
+ *  - ex_3_1: placeholder for future graph exercise
  */
 class Exerciser{
 public:
-
-
-    // TODO add Reader &reader as argument for all the exerciser functions
+    /**
+     * @brief Brute-force enumeration for 0/1 Knapsack.
+     * @param reader  Supplies pallets and truck capacity.
+     */
     void ex_2_1(Reader &reader);
 
+    /**
+         * @brief Dynamic-programming solution for 0/1 Knapsack.
+         * @param reader  Supplies pallets and truck capacity.
+         */
     void ex_2_2(Reader &reader);
 
+    /**
+     * @brief Greedy ratio-based heuristic for knapsack.
+     * @param reader  Supplies pallets and truck capacity.
+     */
     void ex_2_3(Reader &reader);
 
+    /**
+     * @brief Genetic-algorithm approach for knapsack.
+     * @param reader  Supplies pallets and truck capacity.
+     */
     void ex_2_4(Reader &reader);
 
+    /**
+     * @brief Placeholder for Performance Evaluation exercise (to be implemented).
+     * @param reader
+     */
     void ex_3_1(Reader &reader);
 
 

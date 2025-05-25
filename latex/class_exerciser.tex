@@ -1,0 +1,180 @@
+\doxysection{Exerciser Class Reference}
+\hypertarget{class_exerciser}{}\label{class_exerciser}\index{Exerciser@{Exerciser}}
+
+
+Hosts implementations of several optimization exercises.  
+
+
+
+
+{\ttfamily \#include $<$exercises.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_exerciser_a7686416eea0d912ea2a6f292209108fe}{ex\+\_\+2\+\_\+1}} (\mbox{\hyperlink{class_reader}{Reader}} \&reader)
+\begin{DoxyCompactList}\small\item\em Brute-\/force enumeration for 0/1 Knapsack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_exerciser_a94c0068c4a31208148148f9a422e9ee3}{ex\+\_\+2\+\_\+2}} (\mbox{\hyperlink{class_reader}{Reader}} \&reader)
+\begin{DoxyCompactList}\small\item\em Dynamic-\/programming solution for 0/1 Knapsack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_exerciser_a4952dc73a3e42a612df9994079def1f9}{ex\+\_\+2\+\_\+3}} (\mbox{\hyperlink{class_reader}{Reader}} \&reader)
+\begin{DoxyCompactList}\small\item\em Greedy ratio-\/based heuristic for knapsack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_exerciser_a4c1f3f47fd5ecdca553dbc79f48707bd}{ex\+\_\+2\+\_\+4}} (\mbox{\hyperlink{class_reader}{Reader}} \&reader)
+\begin{DoxyCompactList}\small\item\em Genetic-\/algorithm approach for knapsack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_exerciser_a189b323476b7b0a33e8d9aea8f383a08}{ex\+\_\+3\+\_\+1}} (\mbox{\hyperlink{class_reader}{Reader}} \&reader)
+\begin{DoxyCompactList}\small\item\em Placeholder for Performance Evaluation exercise (to be implemented). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Hosts implementations of several optimization exercises. 
+
+Provides methods\+:
+\begin{DoxyItemize}
+\item ex\+\_\+2\+\_\+1\+: brute-\/force knapsack
+\item ex\+\_\+2\+\_\+2\+: dynamic-\/programming knapsack
+\item ex\+\_\+2\+\_\+3\+: greedy knapsack
+\item ex\+\_\+2\+\_\+4\+: genetic algorithm knapsack
+\item ex\+\_\+3\+\_\+1\+: placeholder for future graph exercise 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{class_exerciser_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_exerciser_a7686416eea0d912ea2a6f292209108fe}\index{Exerciser@{Exerciser}!ex\_2\_1@{ex\_2\_1}}
+\index{ex\_2\_1@{ex\_2\_1}!Exerciser@{Exerciser}}
+\doxysubsubsection{\texorpdfstring{ex\_2\_1()}{ex\_2\_1()}}
+{\footnotesize\ttfamily \label{class_exerciser_a7686416eea0d912ea2a6f292209108fe} 
+void Exerciser\+::ex\+\_\+2\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_reader}{Reader}} \&}]{reader}{}\end{DoxyParamCaption})}
+
+
+
+Brute-\/force enumeration for 0/1 Knapsack. 
+
+Brute-\/force solution to the 0/1 Knapsack problem.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & Supplies pallets and truck capacity.\\
+\hline
+\end{DoxyParams}
+Tries every subset of pallets by bitmask enumeration, tracking the best($>$profit) subset that fits within truck.\+capacity.
+
+@complexity
+\begin{DoxyItemize}
+\item Time\+: O(2\texorpdfstring{$^\wedge$}{\string^}n \texorpdfstring{$\ast$}{*} n), where n = number of pallets
+\item Space\+: O(1) extra (aside from input storage)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & Provides reader.\+pallets and reader.\+truck.\+capacity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_exerciser_a94c0068c4a31208148148f9a422e9ee3}\index{Exerciser@{Exerciser}!ex\_2\_2@{ex\_2\_2}}
+\index{ex\_2\_2@{ex\_2\_2}!Exerciser@{Exerciser}}
+\doxysubsubsection{\texorpdfstring{ex\_2\_2()}{ex\_2\_2()}}
+{\footnotesize\ttfamily \label{class_exerciser_a94c0068c4a31208148148f9a422e9ee3} 
+void Exerciser\+::ex\+\_\+2\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_reader}{Reader}} \&}]{reader}{}\end{DoxyParamCaption})}
+
+
+
+Dynamic-\/programming solution for 0/1 Knapsack. 
+
+Dynamic-\/programming solution to the 0/1 Knapsack problem.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & Supplies pallets and truck capacity.\\
+\hline
+\end{DoxyParams}
+Builds a 2D table dp\mbox{[}i\mbox{]}\mbox{[}w\mbox{]} = max profit using first i items and capacity w, then backtracks to retrieve the chosen set.
+
+@complexity
+\begin{DoxyItemize}
+\item Time\+: O(n \texorpdfstring{$\ast$}{*} W), where W = truck.\+capacity
+\item Space\+: O(n \texorpdfstring{$\ast$}{*} W) for the DP table
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & Provides reader.\+pallets and reader.\+truck.\+capacity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_exerciser_a4952dc73a3e42a612df9994079def1f9}\index{Exerciser@{Exerciser}!ex\_2\_3@{ex\_2\_3}}
+\index{ex\_2\_3@{ex\_2\_3}!Exerciser@{Exerciser}}
+\doxysubsubsection{\texorpdfstring{ex\_2\_3()}{ex\_2\_3()}}
+{\footnotesize\ttfamily \label{class_exerciser_a4952dc73a3e42a612df9994079def1f9} 
+void Exerciser\+::ex\+\_\+2\+\_\+3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_reader}{Reader}} \&}]{reader}{}\end{DoxyParamCaption})}
+
+
+
+Greedy ratio-\/based heuristic for knapsack. 
+
+Greedy heuristic\+: sort by weight/profit ratio and take in order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & Supplies pallets and truck capacity.\\
+\hline
+\end{DoxyParams}
+@complexity
+\begin{DoxyItemize}
+\item Time\+: O(n log n) for the sort
+\item Space\+: O(n) auxiliary for ratio–index pairs
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & Provides reader.\+pallets and reader.\+truck.\+capacity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_exerciser_a4c1f3f47fd5ecdca553dbc79f48707bd}\index{Exerciser@{Exerciser}!ex\_2\_4@{ex\_2\_4}}
+\index{ex\_2\_4@{ex\_2\_4}!Exerciser@{Exerciser}}
+\doxysubsubsection{\texorpdfstring{ex\_2\_4()}{ex\_2\_4()}}
+{\footnotesize\ttfamily \label{class_exerciser_a4c1f3f47fd5ecdca553dbc79f48707bd} 
+void Exerciser\+::ex\+\_\+2\+\_\+4 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_reader}{Reader}} \&}]{reader}{}\end{DoxyParamCaption})}
+
+
+
+Genetic-\/algorithm approach for knapsack. 
+
+Genetic-\/algorithm approach to Knapsack.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & Supplies pallets and truck capacity.\\
+\hline
+\end{DoxyParams}
+Initializes a population of random bitstrings, repairs overweight individuals, then evolves via tournament selection, single-\/point crossover, and bit-\/flip mutation.
+
+@complexity
+\begin{DoxyItemize}
+\item Time\+: O(\+G \texorpdfstring{$\ast$}{*} P \texorpdfstring{$\ast$}{*} n), where G = GA\+\_\+\+MAX\+\_\+\+GENERATIONS, P = GA\+\_\+\+POP\+\_\+\+SIZE, n = number of pallets
+\item Space\+: O(\+P \texorpdfstring{$\ast$}{*} n) for the population
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & Provides reader.\+pallets and reader.\+truck.\+capacity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_exerciser_a189b323476b7b0a33e8d9aea8f383a08}\index{Exerciser@{Exerciser}!ex\_3\_1@{ex\_3\_1}}
+\index{ex\_3\_1@{ex\_3\_1}!Exerciser@{Exerciser}}
+\doxysubsubsection{\texorpdfstring{ex\_3\_1()}{ex\_3\_1()}}
+{\footnotesize\ttfamily \label{class_exerciser_a189b323476b7b0a33e8d9aea8f383a08} 
+void Exerciser\+::ex\+\_\+3\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_reader}{Reader}} \&}]{reader}{}\end{DoxyParamCaption})}
+
+
+
+Placeholder for Performance Evaluation exercise (to be implemented). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reader} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{exercises_8h}{exercises.\+h}}\item 
+\mbox{\hyperlink{exercises_8cpp}{exercises.\+cpp}}\end{DoxyCompactItemize}

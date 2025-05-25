@@ -1,0 +1,26 @@
+\doxysection{Reader/\+Reader.h File Reference}
+\hypertarget{_reader_8h}{}\label{_reader_8h}\index{Reader/Reader.h@{Reader/Reader.h}}
+
+
+Declares the \doxylink{class_reader}{Reader} class for loading truck and pallet data from CSV files.  
+
+
+{\ttfamily \#include "{}../\+Data\+Types/pallet.\+h"{}}\newline
+{\ttfamily \#include "{}../\+Data\+Types/truck.\+h"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_reader}{Reader}}
+\begin{DoxyCompactList}\small\item\em Loads and stores truck parameters and pallet listings from CSV datasets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declares the \doxylink{class_reader}{Reader} class for loading truck and pallet data from CSV files. 
+
+The \doxylink{class_reader}{Reader} class provides a single public method, read\+Data(), which reads two CSV files\+:
+\begin{DoxyItemize}
+\item Truck\+And\+Pallets\+\_\+0$<$files\+Number$>$.\+csv
+\item Pallets\+\_\+0$<$files\+Number$>$.\+csv and populates its {\ttfamily truck} member (capacity and pallet count) and its {\ttfamily pallets} vector (individual \doxylink{class_pallet}{Pallet} objects). 
+\end{DoxyItemize}
