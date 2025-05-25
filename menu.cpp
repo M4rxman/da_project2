@@ -52,46 +52,22 @@ void menu::mainMenu() {
 
     if (mode == BRUTE_FORCE) {
         std::cout << "=== Exhaustive/Brute Force Approach ===\n";
-        auto start = std::chrono::high_resolution_clock::now();
         exerciser.ex_2_1(reader);
-        auto end = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration<double, std::milli>(end - start);
-        std::cout << "Execution time: " << std::fixed << std::setprecision(3)
-                  << duration.count() << " ms\n";
-        std::cout << "===========================================\n";
         backToMenu(*this);
     }
     else if (mode == DYNAMIC) {
         std::cout << "=== Dynamic Programming Approach ===\n";
-        auto start = std::chrono::high_resolution_clock::now();
         exerciser.ex_2_2(reader);
-        auto end = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration<double, std::milli>(end - start);
-        std::cout << "Execution time: " << std::fixed << std::setprecision(3)
-                  << duration.count() << " ms\n";
-        std::cout << "===========================================\n";
         backToMenu(*this);
     }
     else if (mode == GREEDY) {
         std::cout << "=== Approximation Algorithms/Greedy Approach ===\n";
-        auto start = std::chrono::high_resolution_clock::now();
         exerciser.ex_2_3(reader);
-        auto end = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration<double, std::milli>(end - start);
-        std::cout << "Execution time: " << std::fixed << std::setprecision(3)
-                  << duration.count() << " ms\n";
-        std::cout << "===========================================\n";
         backToMenu(*this);
     }
     else if (mode == ILP) {
         std::cout << "=== Integer Linear Programming Algorithm ===\n";
-        auto start = std::chrono::high_resolution_clock::now();
         exerciser.ex_2_4(reader);
-        auto end = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration<double, std::milli>(end - start);
-        std::cout << "Execution time: " << std::fixed << std::setprecision(3)
-                  << duration.count() << " ms\n";
-        std::cout << "===========================================\n";
         backToMenu(*this);
     }
     else if (mode == PERFORMANCE) {

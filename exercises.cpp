@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <iomanip>
 #include <random>
+#include <chrono>
 
 const int GA_POP_SIZE = 100;
 const double GA_MUTATION_RATE = 0.01;
@@ -23,6 +24,8 @@ void Exerciser::ex_2_1(Reader &reader) {
     int bestTotalProfit = 0;
     int bestSubsetMask  = 0;
     int finalWeight = 0;
+
+    auto start = std::chrono::high_resolution_clock::now();
 
     const int totalSubsets = (1ULL << palletCount);
     for (int subsetMask = 0; subsetMask < totalSubsets; ++subsetMask) {
@@ -50,6 +53,9 @@ void Exerciser::ex_2_1(Reader &reader) {
         }
     }
 
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration<double, std::milli>(end - start);
+
     cout << "=== Ex. 2.1: Brute-Force Knapsack ===\n";
     cout << "Truck Capacity: " << capacity << "\n";
     cout << "Available pallets: " << palletCount << "\n\n";
@@ -66,7 +72,9 @@ void Exerciser::ex_2_1(Reader &reader) {
                  << "\n";
         }
     }
-
+    std::cout << "Execution time: " << std::fixed << std::setprecision(3)
+                  << duration.count() << " ms\n";
+    std::cout << "===========================================\n";
 };
 
 
@@ -77,6 +85,8 @@ void Exerciser::ex_2_2(Reader &reader) {
 
     // dp[i][w] = max profit using the first i pallets with capacity limit w
     std::vector<std::vector<int>> dp(n+1, std::vector<int>(capacity+1, 0));
+
+    auto start = std::chrono::high_resolution_clock::now();
 
     for (size_t i = 1; i <= n; ++i) {
         int wt = palletList[i-1].weight;
@@ -113,6 +123,9 @@ void Exerciser::ex_2_2(Reader &reader) {
         }
     }
 
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration<double, std::milli>(end - start);
+
     // Output results
     std::cout << "=== Ex. 2.2: Dynamic Programming Knapsack ===\n";
     std::cout << "Truck Capacity: "    << capacity  << "\n";
@@ -129,12 +142,17 @@ void Exerciser::ex_2_2(Reader &reader) {
                       << "\n";
         }
     }
+    std::cout << "Execution time: " << std::fixed << std::setprecision(3)
+                  << duration.count() << " ms\n";
+    std::cout << "===========================================\n";
 };
 
 
 void Exerciser::ex_2_3(Reader &reader) {
     Truck& truck = reader.truck;
     std::vector<Pallet>& pallets = reader.pallets;
+
+    auto start = std::chrono::high_resolution_clock::now();
 
     std::vector<std::pair<double, int>> ratioIndexPairs;
     for (int i = 0; i < pallets.size(); ++i) {
@@ -158,6 +176,9 @@ void Exerciser::ex_2_3(Reader &reader) {
         }
     }
 
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration<double, std::milli>(end - start);
+
     std::cout << "=== Ex. 2.3: Greedy Algorithm ===\n";
     std::cout << "Truck Capacity: " << truck.capacity << "\n";
     std::cout << "Available pallets: " << truck.pallets << "\n\n";
@@ -175,7 +196,9 @@ void Exerciser::ex_2_3(Reader &reader) {
                   << static_cast<double>(p.profit)/p.weight
                   << "\n";
     }
-
+    std::cout << "Execution time: " << std::fixed << std::setprecision(3)
+                  << duration.count() << " ms\n";
+    std::cout << "===========================================\n";
 };
 
 
@@ -232,6 +255,8 @@ void Exerciser::ex_2_4(Reader &reader) {
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> bin_dist(0, 1);
+
+    auto start = std::chrono::high_resolution_clock::now();
 
     // Initialize population
     vector<Individual> population(GA_POP_SIZE);
@@ -301,6 +326,8 @@ void Exerciser::ex_2_4(Reader &reader) {
          });
     Individual& best = population[0];
 
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration<double, std::milli>(end - start);
 
     std::cout << "=== Ex. 2.4: Genetic Algorithm ===\n";
     std::cout << "Truck Capacity: " << truck.capacity << "\n";
@@ -327,6 +354,9 @@ void Exerciser::ex_2_4(Reader &reader) {
                   << static_cast<double>(p->profit)/p->weight
                   << "\n";
     }
+    std::cout << "Execution time: " << std::fixed << std::setprecision(3)
+                  << duration.count() << " ms\n";
+    std::cout << "===========================================\n";
 }
 
 
