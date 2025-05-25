@@ -66,7 +66,64 @@ void Exerciser::ex_2_1(Reader &reader) {
 
 
 void Exerciser::ex_2_2(Reader &reader) {
-    // TODO
+    const auto &palletList = reader.pallets;
+    const size_t n = palletList.size();
+    const int capacity = reader.truck.capacity;
+
+    // dp[i][w] = max profit using the first i pallets with capacity limit w
+    std::vector<std::vector<int>> dp(n+1, std::vector<int>(capacity+1, 0));
+
+    for (size_t i = 1; i <= n; ++i) {
+        int wt = palletList[i-1].weight;
+        int pf = palletList[i-1].profit;
+        for (int w = 0; w <= capacity; ++w) {
+            // either skip pallet i, or take it (if it fits)
+            dp[i][w] = dp[i-1][w];
+            if (wt <= w) {
+                dp[i][w] = std::max(dp[i][w], dp[i-1][w - wt] + pf);
+            }
+        }
+    }
+
+    // The best total profit is at dp[n][capacity]
+    int bestTotalProfit = dp[n][capacity];
+
+    // Find the actual weight used: the smallest w such that dp[n][w] == bestTotalProfit
+    int finalWeight = 0;
+    for (int w = 0; w <= capacity; ++w) {
+        if (dp[n][w] == bestTotalProfit) {
+            finalWeight = w;
+            break;
+        }
+    }
+
+    // Backtrack to find which pallets were taken
+    std::vector<bool> taken(n, false);
+    int w = finalWeight;
+    for (int i = n; i >= 1; --i) {
+        if (dp[i][w] != dp[i-1][w]) {
+            // pallet (i-1) was taken
+            taken[i-1] = true;
+            w -= palletList[i-1].weight;
+        }
+    }
+
+    // Output results
+    std::cout << "=== Ex. 2.2: Dynamic Programming Knapsack ===\n";
+    std::cout << "Truck Capacity: "    << capacity  << "\n";
+    std::cout << "Available pallets: " << n         << "\n\n";
+    std::cout << "Final weight: "      << finalWeight    << "\n";
+    std::cout << "Best overall profit: "<< bestTotalProfit << "\n";
+    std::cout << "Selected pallets:\n";
+    for (size_t i = 0; i < n; ++i) {
+        if (taken[i]) {
+            const auto &p = palletList[i];
+            std::cout << "  - Pallet #" << p.number
+                      << " | Weight: "  << p.weight
+                      << " | Profit: "  << p.profit
+                      << "\n";
+        }
+    }
 };
 
 
