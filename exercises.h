@@ -47,7 +47,7 @@ public:
      * @brief Genetic-algorithm approach for knapsack.
      * @param reader  Supplies pallets and truck capacity.
      */
-    void ex_2_4(Reader &reader);
+    void ex_2_4(Reader &reader, int generation_num);
 
 };
 

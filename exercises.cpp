@@ -16,7 +16,6 @@
 
 const int GA_POP_SIZE = 100;
 const double GA_MUTATION_RATE = 0.01;
-const int GA_MAX_GENERATIONS = 100;
 
 
 /**
@@ -310,7 +309,7 @@ struct Individual {
  *
  * @param reader  Provides reader.pallets and reader.truck.capacity.
  */
-void Exerciser::ex_2_4(Reader &reader) {
+void Exerciser::ex_2_4(Reader &reader, int max_generation_num) {
 
     Truck& truck = reader.truck;
     std::vector<Pallet>& pallets = reader.pallets;
@@ -333,7 +332,7 @@ void Exerciser::ex_2_4(Reader &reader) {
         ind.fitness = calculate_fitness(ind.chromosome, pallets, truck.capacity);
     }
 
-    for(int generation = 0; generation < GA_MAX_GENERATIONS; generation++) {
+    for(int generation = 0; generation < max_generation_num; generation++) {
         vector<Individual> new_population;
 
         // Elitism: Keep top 10%

@@ -61,7 +61,10 @@ void menu::mainMenu() {
         backToMenu(*this);
     }
     else if (mode == GENETIC) {
-        exerciser.ex_2_4(reader);
+        int max_generation_num;
+        std::cout << "Enter maximal number of Generations: \n";
+        std::cin >> max_generation_num;
+        exerciser.ex_2_4(reader, max_generation_num);
         backToMenu(*this);
     }
     else if (mode == QUIT) {
