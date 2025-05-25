@@ -7,7 +7,7 @@
 #define BRUTE_FORCE 1
 #define DYNAMIC 2
 #define GREEDY 3
-#define ILP 4
+#define GENETIC 4
 #define QUIT 0
 #define DATASET_MENU 9
 
@@ -31,7 +31,7 @@ void menu::mainMenu() {
     std::cout << " 1. Exhaustive/Brute-Force Approach ( 2.1 )\n";
     std::cout << " 2. Dynamic Programming Approach ( 2.2 )\n";
     std::cout << " 3. Approximation Algorithms/Greedy Approach ( 2.3 )\n";
-    std::cout << " 4. Integer Linear Programming Algorithm ( 2.4 )\n";
+    std::cout << " 4. Genetic Algorithm ( 2.4 )\n";
 
     std::cout << " 9. Go Back to Dataset Menu\n";
     std::cout << " 0. Quit\n";
@@ -49,22 +49,18 @@ void menu::mainMenu() {
     Exerciser exerciser;
 
     if (mode == BRUTE_FORCE) {
-        std::cout << "=== Exhaustive/Brute Force Approach ===\n";
         exerciser.ex_2_1(reader);
         backToMenu(*this);
     }
     else if (mode == DYNAMIC) {
-        std::cout << "=== Dynamic Programming Approach ===\n";
         exerciser.ex_2_2(reader);
         backToMenu(*this);
     }
     else if (mode == GREEDY) {
-        std::cout << "=== Approximation Algorithms/Greedy Approach ===\n";
         exerciser.ex_2_3(reader);
         backToMenu(*this);
     }
-    else if (mode == ILP) {
-        std::cout << "=== Integer Linear Programming Algorithm ===\n";
+    else if (mode == GENETIC) {
         exerciser.ex_2_4(reader);
         backToMenu(*this);
     }

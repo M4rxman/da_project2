@@ -33,11 +33,15 @@
  * @param filesNumber  Numeric suffix (e.g. "1", "2") used to build
  *                     the dataset filenames.
  */
-void Reader::readData(const std::string &filesNumber) {
+void Reader::readData(std::string &filesNumber) {
     std::string line;
 
-    // Open truck data file
-    std::ifstream file("../datasets/TruckAndPallets_0" + filesNumber + ".csv");
+    if (filesNumber.length() == 1) {
+        filesNumber = "0" + filesNumber;
+    }
+
+    std::ifstream file("../datasets/TruckAndPallets_" + filesNumber + ".csv");
+
     if (!file.is_open()) {
         std::cerr << "Error: Failed to open truck file " << filesNumber << std::endl;
         return;
@@ -57,7 +61,8 @@ void Reader::readData(const std::string &filesNumber) {
     file.close();
 
     // Open pallets data file
-    std::ifstream Pfile("../datasets/Pallets_0" + filesNumber + ".csv");
+    std::ifstream Pfile("../datasets/Pallets_" + filesNumber + ".csv");
+
     if (!Pfile.is_open()) {
         std::cerr << "Error: Failed to open pallets file " << filesNumber << std::endl;
         return;

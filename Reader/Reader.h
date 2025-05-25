@@ -41,7 +41,7 @@ public:
      * @param filesNumber
      *   Two-digit suffix (e.g. "1", "2", "03") used to build the filenames.
      */
-    void readData(const std::string &filesNumber);
+    void readData(std::string &filesNumber);
 
     std::vector<Pallet> pallets;  /**< List of loaded Pallet objects */
     Truck              truck;    /**< Loaded Truck object (capacity and pallet count) */
