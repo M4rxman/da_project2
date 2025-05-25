@@ -30,6 +30,8 @@ public:
     void ex_2_4(Reader &reader);
 
     void ex_3_1(Reader &reader);
+
+
 };
 
 #endif //DAPROJ2_EXERCISES_H

@@ -122,10 +122,16 @@ void menu::dataMenu() {
     std::cout << "============================================================\n";
     std::cout << "          Delivery Truck Pallet Packing - Data Menu         \n";
     std::cout << "============================================================\n";
-    std::cout << "Select a number between 1 and 4 to choose a dataset:\n";
+    std::cout << "Select a number between 1 and 10 to choose a dataset:\n";
 
     int dataset;
     std::cin >> dataset;
+
+    if (dataset < 1 || dataset > 10) {
+        std::cout << "Invalid dataset number. Please choose a number between 1 and 10.\n";
+        dataMenu();
+        return;
+    }
 
     this->filesNumber = std::to_string(dataset);
 
