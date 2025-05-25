@@ -7,7 +7,6 @@
  *  - ex_2_2: dynamic programming
  *  - ex_2_3: greedy ratio heuristic
  *  - ex_2_4: genetic algorithm
- *  - ex_3_1: (TODO, not documented)
  */
 #include "exercises.h"
 #include <algorithm>
@@ -423,10 +422,4 @@ void Exerciser::ex_2_4(Reader &reader) {
     std::cout << "===========================================\n";
 }
 
-
-
-
-void Exerciser::ex_3_1(Reader &reader) {
-    // TODO
-};
 

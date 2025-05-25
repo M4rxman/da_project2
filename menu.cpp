@@ -8,7 +8,6 @@
 #define DYNAMIC 2
 #define GREEDY 3
 #define ILP 4
-#define PERFORMANCE 5
 #define QUIT 0
 #define DATASET_MENU 9
 
@@ -33,7 +32,6 @@ void menu::mainMenu() {
     std::cout << " 2. Dynamic Programming Approach ( 2.2 )\n";
     std::cout << " 3. Approximation Algorithms/Greedy Approach ( 2.3 )\n";
     std::cout << " 4. Integer Linear Programming Algorithm ( 2.4 )\n";
-    std::cout << " 5. Performance Evaluation\n\n";
 
     std::cout << " 9. Go Back to Dataset Menu\n";
     std::cout << " 0. Quit\n";
@@ -68,13 +66,6 @@ void menu::mainMenu() {
     else if (mode == ILP) {
         std::cout << "=== Integer Linear Programming Algorithm ===\n";
         exerciser.ex_2_4(reader);
-        backToMenu(*this);
-    }
-    else if (mode == PERFORMANCE) {
-        std::cout << "Performance Evaluation \n ";
-
-        exerciser.ex_3_1(reader);
-
         backToMenu(*this);
     }
     else if (mode == QUIT) {

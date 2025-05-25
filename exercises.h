@@ -22,7 +22,6 @@
  *  - ex_2_2: dynamic-programming knapsack
  *  - ex_2_3: greedy knapsack
  *  - ex_2_4: genetic algorithm knapsack
- *  - ex_3_1: placeholder for future graph exercise
  */
 class Exerciser{
 public:
@@ -49,13 +48,6 @@ public:
      * @param reader  Supplies pallets and truck capacity.
      */
     void ex_2_4(Reader &reader);
-
-    /**
-     * @brief Placeholder for Performance Evaluation exercise (to be implemented).
-     * @param reader
-     */
-    void ex_3_1(Reader &reader);
-
 
 };
 
